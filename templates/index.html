@@ -1,0 +1,45 @@
+{% extends "partials/base.html" %} 
+{% load static %}
+
+
+{% block header %}
+{% include "partials/header.html" %}
+{% endblock header %}
+{% if messages %}
+{% for message in messages %}
+    <div class='alert alert-{{ message.tags }}'>
+    {{ message }}
+    </div>
+{% endfor %}
+{% endif %}
+{% block feature_news %}
+{% include "partials/feature_news.html" %}
+{% endblock feature_news %}
+
+{% block left_news_section %}
+{% include "partials/left_news_section.html" %}
+{% endblock left_news_section %}
+
+{% block right_section %}
+{% include "partials/right_section.html" %}
+{% endblock right_section %}
+
+{% block video_section %}
+{% include "partials/video_section.html" %}
+{% endblock video_section %}
+
+{% block subscribe_section %}
+{% include "partials/subscribe_section.html" %}
+{% endblock subscribe_section %}
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+
+{% block uc_mobile %}
+{% include "partials/uc_mobile.html" %}
+{% endblock uc_mobile %}
+
+{% block script %}
+{% include "partials/script.html" %}
+{% endblock script %}

@@ -1,0 +1,41 @@
+{% extends "partials/base.html" %}
+{% load crispy_forms_tags %}
+
+
+
+{% block header %}
+{% include "partials/header.html" %}
+{% endblock header %}
+
+{% block feature_news %}
+<div class="col-lg-6 col-md-6">
+    <form method="post">
+    <legend class="border-bottom mb-4">Join Today</legend>
+    {{ form|crispy }}
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">SignUp</button>
+    </form>
+    <div class = 'border-top pt-3'>
+        <small class = 'text-muted'>
+            Already Have An Account? <a class = 'ml-2' href='#'>Sign In </a>
+        </small>
+    </div>
+</div>
+
+{% endblock feature_news %}
+
+{% block subscribe_section %}
+{% include "partials/subscribe_section.html" %}
+{% endblock subscribe_section %}
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+
+{% block uc_mobile %}
+{% include "partials/uc_mobile.html" %}
+{% endblock uc_mobile %}
+
+{% block script %}
+{% include "partials/script.html" %}
+{% endblock script %}
