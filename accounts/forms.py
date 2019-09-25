@@ -1,5 +1,5 @@
 from django import forms
-from accounts.models import User
+from accounts.models import User, Profile
 from django.contrib.auth.forms import UserCreationForm
 
 class EmailValidation(forms.EmailField):
@@ -17,3 +17,15 @@ class UserSignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('email', 'username', 'first_name', 'last_name')
+
+class UserUpdateForm(forms.ModelForm):
+    email = EmailValidation(required=True)
+
+    class Meta:
+        model = User
+        fields = ('username', 'email')
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('image',)

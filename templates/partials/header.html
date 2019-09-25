@@ -31,15 +31,20 @@
                 </div>
                 <div class="col-md-4">
                     <div class="logo">
-                        <a href="index.html"><img src="{% static 'assets/img/logo.png' %}" alt="Tech NewsLogo"></a>
+                        <a href="{% url 'news_home' %}"><img src="{% static 'assets/img/logo.png' %}" alt="Tech NewsLogo"></a>
                     </div>
                     <!-- Logo Section -->
                 </div>
                 <div class="col-md-4">
                     <div class="right_section">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Register</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="{% url 'profile' %}">Profile</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                            {% else %}
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'signup' %}">Register</a></li>
+                        {% endif %}
                             <li class="dropdown lang">
                                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">En <i

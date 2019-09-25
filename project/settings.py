@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     
     #custom
-    'accounts',
+    'accounts.apps.AccountsConfig',
+    'news.apps.NewsConfig',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,6 @@ STATICFILES_DIRS = [
 AUTH_USER_MODEL = 'accounts.User'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT = 'news_home'
+LOGIN_URL = 'login'

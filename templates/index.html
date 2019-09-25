@@ -1,16 +1,15 @@
 {% extends "partials/base.html" %} 
 {% load static %}
 
-
 {% block header %}
 {% include "partials/header.html" %}
 {% endblock header %}
 {% if messages %}
-{% for message in messages %}
+    {% for message in messages %}
     <div class='alert alert-{{ message.tags }}'>
     {{ message }}
     </div>
-{% endfor %}
+    {% endfor %}
 {% endif %}
 {% block feature_news %}
 {% include "partials/feature_news.html" %}
