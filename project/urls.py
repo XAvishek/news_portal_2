@@ -15,17 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from accounts.views import SignUpView
+from accounts import views as account_views
 from news.views import NewsTemplateView
 from django.contrib.auth.views import LoginView, LogoutView
-from accounts import views as accounts_views
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', NewsTemplateView.as_view(), name='news_home'),
     path('login/', LoginView.as_view(template_name='accounts/login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),
-    path('signup/', SignUpView.as_view(), name='signup'),
-    path("profile/", accounts_views.profile , name="profile"),
+    path('signup/', account_views.signup , name='signup'),
     path('accounts/', include('accounts.urls')),
     path('news/', include('news.urls')),
     path('admin/', admin.site.urls),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

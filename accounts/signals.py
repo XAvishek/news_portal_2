@@ -1,4 +1,4 @@
-from djago.db.models.signals import post_save
+from django.db.models.signals import post_save
 from accounts.models import User
 from django.dispatch import receiver
 from accounts.models import Profile
@@ -10,5 +10,5 @@ def create_profile(sender, instance, created, **kwargs):
         Profile.objects.create(user=instance)
 
 @receiver(post_save, sender=User)
-def save_profile(sender,instance, **kwargs):
+def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()

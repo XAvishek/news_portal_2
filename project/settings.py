@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #third party
+    # third party
     'crispy_forms',
-    
-    #custom
+
+    # custom
     'accounts.apps.AccountsConfig',
     'news.apps.NewsConfig',
 ]
@@ -129,9 +129,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'accounts.User'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT = 'news_home'
+LOGIN_REDIRECT_URL = 'news_home'
 LOGIN_URL = 'login'
